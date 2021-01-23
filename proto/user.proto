@@ -1,39 +1,33 @@
 syntax = "proto3";
-
-package user;
-
-option go_package = "proto;user";
-
-service User {
-	rpc Call(Request) returns (Response) {}
-	rpc Stream(StreamingRequest) returns (stream StreamingResponse) {}
-	rpc PingPong(stream Ping) returns (stream Pong) {}
+package users;
+service User{
+  //1.注册
+  rpc Register(UserRegisterRequest)  returns(UserRegisterResponse){}
+  //2.登陆
+  rpc Login(UserLoginRequest) returns(UserLoginResponse){}
+  //3.查询用户信息
+  rpc GetUserInfo(UserInfoRequest) returns(UserInfoResponse){}
 }
-
-message Message {
-	string say = 1;
+message UserInfoRequest{
+  int64 user_id = 1;
 }
-
-message Request {
-	string name = 1;
+message UserInfoResponse{
+  int64 user_id = 1;
+  string user_name = 2;
+  string first_name = 3;
 }
-
-message Response {
-	string msg = 1;
+message UserRegisterRequest{
+  string user_name = 1;
+  string first_name = 2;
+  string pwd = 3;
 }
-
-message StreamingRequest {
-	int64 count = 1;
+message UserRegisterResponse{
+  string message = 1;//是否注册成功
 }
-
-message StreamingResponse {
-	int64 count = 1;
+message UserLoginRequest{
+  string user_name = 1;
+  string pwd = 2;
 }
-
-message Ping {
-	int64 stroke = 1;
-}
-
-message Pong {
-	int64 stroke = 1;
+message UserLoginResponse{
+  bool is_success = 1;//是否成功
 }
