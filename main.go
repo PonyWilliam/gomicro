@@ -28,7 +28,7 @@ func main() {
 	db.SingularTable(true)
 
 	rp:=repository.NewUserRepository(db)
-	rp.Initable()
+	rp.I()
 
 	userDataservice := service2.NewUserDataService(repository.NewUserRepository(db))
 	//创建实例

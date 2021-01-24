@@ -7,7 +7,7 @@ import (
 )
 
 type IUserRepository interface {
-	Initable() error
+	I() error
 
 	//根据用户名称查找用户信息
 	FindUserByName(string) (*model.User,error)
@@ -29,7 +29,7 @@ type UserRepository struct{
 	mysqlDb *gorm.DB
 }
 //初始化表
-func(u *UserRepository) Initable() error{
+func(u *UserRepository) I() error{
 	if u.mysqlDb.HasTable(&model.User{})==true{
 		return nil
 	}
