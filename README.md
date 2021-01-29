@@ -1,5 +1,5 @@
 # 重要提示
-本项目已合并到：[项目地址]("https://github.com/PonyWilliam/DevicesManager")
+本项目已合并到：[项目地址](https://github.com/PonyWilliam/DevicesManager)
 # 食用说明
 ## 一.开发进度
 ### 1-1进度说明
